@@ -76,10 +76,10 @@
 									<td>
 										<spring:bind path="${token.codeName}">
 											<c:if test="${status.value == null}">
-												<input type="text" name="${status.expression}" value="${model.layoutTemplate.elementDefaults[token.codeName]}" size="${token.displaySize}" />
+												<input type="text" name="${status.expression}" value="<c:out value='${model.layoutTemplate.elementDefaults[token.codeName]}'/>" size="${token.displaySize}" />
 											</c:if>
 											<c:if test="${status.value != null}">
-												<input type="text" name="${status.expression}" value="${status.value}" size="${token.displaySize}" />
+												<input type="text" name="${status.expression}" value="<c:out value='${status.value}'/>" size="${token.displaySize}" />
 											</c:if>
 											<c:if test="${model.layoutShowErrors != 'false'}">
 												<c:if test="${status.errorMessage != ''}"><span class="error">${status.errorMessage}</span></c:if>
@@ -171,10 +171,10 @@
 											<td <c:if test="${tokenStatus.last && tokenStatus.index < model.layoutTemplate.maxTokens}">colspan="${model.layoutTemplate.maxTokens - tokenStatus.index}"</c:if>>
 												<spring:bind path="${token.codeName}">
 													<c:if test="${status.value == null}">
-														<input type="text" name="${status.expression}" value="${model.layoutTemplate.elementDefaults[token.codeName]}" size="${token.displaySize}" />
+														<input type="text" name="${status.expression}" value="<c:out value='${model.layoutTemplate.elementDefaults[token.codeName]}'/>" size="${token.displaySize}" />
 													</c:if>
 													<c:if test="${status.value != null}">
-														<input type="text" name="${status.expression}" value="${status.value}" size="${token.displaySize}" />
+														<input type="text" name="${status.expression}" value="<c:out value='${status.value}'/>" size="${token.displaySize}" />
 													</c:if>
 													<c:if test="${model.layoutShowErrors != 'false'}">
 														<c:if test="${status.errorMessage != ''}"><span class="error">${status.errorMessage}</span></c:if>
@@ -226,7 +226,7 @@
 									<td><openmrs:message code="general.voidReason"/></td>
 									<spring:bind path="voidReason">
 										<td colspan="4">
-											<input type="text" name="${status.expression}" value="${status.value}" size="43" />
+											<input type="text" name="${status.expression}" value="<c:out value='${status.value}'/>" size="43" />
 											<c:if test="${status.errorMessage != ''}"><span class="error">${status.errorMessage}</span></c:if>
 										</td>
 									</spring:bind>
